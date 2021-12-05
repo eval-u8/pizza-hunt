@@ -5,9 +5,13 @@ const PizzaSchema = new Schema(
     {
         pizzaName: {
             type: String,
+            required: true,
+            trim: true,
         },
         createdBy: {
             type: String,
+            required: true,
+            trim: true,
         },
         createdAt: {
             type: Date,
@@ -16,6 +20,9 @@ const PizzaSchema = new Schema(
         },
         size: {
             type: String,
+            required: true,
+            enum: ["Personal", "Small", "Medium", "Large", "Extra Large"],
+            // enum is like required but iterating over an array of options. meaning. it needs to be one of them exclusively
             default: "Large",
         },
         comments: [
